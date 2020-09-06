@@ -2,6 +2,7 @@ package com.prx.persistence.general.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -23,8 +24,9 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 @Table(name = "person", schema = "general")
 public class PersonEntity implements Serializable {
 
@@ -51,8 +53,6 @@ public class PersonEntity implements Serializable {
     private String gender;
     @Column(name = "birthdate")
     private LocalDateTime birthdate;
-    @OneToMany(mappedBy = "person", cascade = ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<ContactEntity> contactEntities;
 
     @Override
     public String toString() {

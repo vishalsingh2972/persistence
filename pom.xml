@@ -5,16 +5,27 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.prx.persistence</groupId>
     <artifactId>prx-persistence</artifactId>
-    <version>1.0.2.20200713-01</version>
+    <version>1.0.2.20200904-01</version>
     <description>Componente para persistencia de objetos</description>
     <name>PRX persistence</name>
 
     <parent>
         <groupId>com.prx</groupId>
         <artifactId>prx-central</artifactId>
-        <version>1.0.3.20200713-01</version>
+        <version>1.0.3.20200904-01</version>
         <relativePath>../central</relativePath> <!-- lookup parent from repository -->
     </parent>
+
+    <developers>
+        <developer>
+            <id>lmata</id>
+            <name>Luis Antonio Mata</name>
+            <email>luis.antonio.mata@gmail.com</email>
+            <url>www.prx-dev.com</url>
+            <organization>PRX Dev Innova</organization>
+            <organizationUrl>www.prx.com</organizationUrl>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,15 +33,6 @@
         <maven.compiler.source>13</maven.compiler.source>
         <maven.compiler.target>13</maven.compiler.target>
     </properties>
-
-    <developers>
-        <developer>
-            <name>Luis Antonio Mata</name>
-            <email>luis.antonio.mata@gmail.com</email>
-            <organization>PRX Innova</organization>
-            <organizationUrl>www.prx.com</organizationUrl>
-        </developer>
-    </developers>
 
     <dependencies>
         <dependency>
@@ -64,7 +66,6 @@
         <dependency>
             <groupId>com.prx.commons</groupId>
             <artifactId>prx-commons</artifactId>
-            <version>${com.prx.commons.version}</version>
             <type>jar</type>
         </dependency>
         <dependency>

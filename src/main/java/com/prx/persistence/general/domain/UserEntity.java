@@ -41,7 +41,7 @@ public class UserEntity implements Serializable {
     @NotNull
     @Column(name = "active")
     private Boolean active;
-    @ManyToOne(cascade = REFRESH, fetch = LAZY)
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private PersonEntity person;
 

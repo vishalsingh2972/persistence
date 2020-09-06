@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 import static com.prx.commons.util.JsonUtil.toJson;
 import static javax.persistence.CascadeType.REFRESH;
@@ -18,10 +19,10 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "contact", schema = "general")
-public class ContactEntity {
+public class ContactEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
