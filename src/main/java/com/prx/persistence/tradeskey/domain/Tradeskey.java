@@ -18,6 +18,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -29,6 +30,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
+@NoArgsConstructor
 public class Tradeskey {
 
     private Double amount;

@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -31,6 +32,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Embeddable
+@NoArgsConstructor
 public class TradeskeyTickerPK implements Serializable {
 
     @Column(name = "date_time")
