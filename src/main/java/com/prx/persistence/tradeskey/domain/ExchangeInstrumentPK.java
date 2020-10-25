@@ -13,12 +13,24 @@
 
 package com.prx.persistence.tradeskey.domain;
 
-import lombok.Data;
-
-import javax.persistence.*;
+import com.prx.commons.util.JsonUtil;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Embeddable;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+/**
+ * ExchangeInstrumentPK.
+ *
+ * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
+ */
+@Getter
+@Setter
 @Embeddable
 public class ExchangeInstrumentPK implements Serializable {
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
@@ -27,4 +39,9 @@ public class ExchangeInstrumentPK implements Serializable {
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_exchange", referencedColumnName = "id_exchange")
     private ExchangeEntity exchange;
+
+    @Override public String toString() {
+        return JsonUtil.toJson(this);
+    }
+
 }

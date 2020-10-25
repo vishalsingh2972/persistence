@@ -13,7 +13,7 @@
 
 package com.prx.persistence.general.domain;
 
-import static com.prx.commons.util.JsonUtil.toJson;
+import com.prx.commons.util.JsonUtil;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,17 +26,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
+ * UserEntity.
  *
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
  */
-@Data
+@Getter
+@Setter
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user", schema = "general")
 public class UserEntity implements Serializable {
@@ -63,7 +65,7 @@ public class UserEntity implements Serializable {
 
     @Override
     public String toString() {
-        return toJson(this);
+        return JsonUtil.toJson(this);
     }
 
 }

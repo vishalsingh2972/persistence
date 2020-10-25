@@ -14,25 +14,29 @@
 package com.prx.persistence.tradeskey.domain;
 
 import com.prx.commons.enums.types.CriptocurrencyType;
-import lombok.Data;
-
+import com.prx.commons.util.JsonUtil;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
+ * TradeskeyOrder.
  *
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
  */
-@Data
+@Setter
+@Getter
 @Entity
 public class TradeskeyOrder implements Serializable {
 
     private Double amount;
     private Integer buyOrderId;
     private Integer sellOrderId;
-    private String timestamp;
+    private Long timestamp;
     private Double price;
     private Integer type;
     private Integer exchangeId;
@@ -40,5 +44,8 @@ public class TradeskeyOrder implements Serializable {
     private Long id;
     private CriptocurrencyType criptocurrencyType;
 
+    @Override public String toString() {
+        return JsonUtil.toJson(this);
+    }
 
 }

@@ -13,26 +13,30 @@
 
 package com.prx.persistence.general.domain;
 
-import static com.prx.commons.util.JsonUtil.toJson;
-import static javax.persistence.GenerationType.AUTO;
+import com.prx.commons.util.JsonUtil;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
-
-import javax.persistence.*;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
+ * Application.
  *
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
  */
-@Data
+@Getter
+@Setter
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "application", schema = "general")
-public class Application {
+public class Application implements Serializable  {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -47,7 +51,7 @@ public class Application {
 
     @Override
     public String toString() {
-        return toJson(this);
+        return JsonUtil.toJson(this);
     }
 
 }

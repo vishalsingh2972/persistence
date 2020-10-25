@@ -13,6 +13,7 @@
 
 package com.prx.persistence.tradeskey.domain;
 
+import com.prx.commons.util.JsonUtil;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
@@ -27,18 +28,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
+ * InstrumentEntity.
  *
- * @author Luis A. Mata <luis.antonio.mata@gmail.com>
+ * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
  */
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "instrument", schema = "tradeskey")
 public class InstrumentEntity implements Serializable {
 
@@ -86,7 +89,11 @@ public class InstrumentEntity implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        return Objects.equals(this.id, other.id);
+        return this.id.equals(other.id);
+    }
+
+    @Override public String toString() {
+        return JsonUtil.toJson(this);
     }
 
 }

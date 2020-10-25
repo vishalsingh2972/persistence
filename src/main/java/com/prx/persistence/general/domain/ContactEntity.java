@@ -14,26 +14,32 @@
 package com.prx.persistence.general.domain;
 
 import com.prx.commons.enums.types.ContactType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import com.prx.commons.util.JsonUtil;
 import java.io.Serializable;
-
-import static com.prx.commons.util.JsonUtil.toJson;
 import static javax.persistence.CascadeType.REFRESH;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import static javax.persistence.FetchType.LAZY;
+import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
+ * ContactEntity.
  *
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
  */
-@Data
+@Setter
+@Getter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "contact", schema = "general")
 public class ContactEntity implements Serializable {
 
@@ -53,6 +59,6 @@ public class ContactEntity implements Serializable {
 
     @Override
     public String toString() {
-        return toJson(this);
+        return JsonUtil.toJson(this);
     }
 }

@@ -14,6 +14,7 @@
 package com.prx.persistence.general.domain;
 
 import com.prx.commons.util.JsonUtil;
+import java.io.Serializable;
 import static javax.persistence.CascadeType.REFRESH;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,15 +30,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
+ * Address.
  *
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
  */
 @Setter
 @Getter
 @Entity
 @NoArgsConstructor
 @Table(name = "address", schema = "general")
-public class Address {
+public class Address implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

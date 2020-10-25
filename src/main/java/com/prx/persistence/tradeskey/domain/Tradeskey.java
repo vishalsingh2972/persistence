@@ -13,24 +13,36 @@
 
 package com.prx.persistence.tradeskey.domain;
 
-import lombok.Data;
-
+import com.prx.commons.util.JsonUtil;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+/**
+ * Tradeskey.
+ *
+ * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
+ */
+@Setter
+@Getter
 @Entity
 public class Tradeskey {
 
     private Double amount;
     private Integer buyOrderId;
     private Integer sellOrderId;
-    private String timestamp;
+    private Long timestamp;
     private Double price;
     private Integer type;
     private Integer exchangeId;
     @Id @GeneratedValue
     private Long id;
+
+    @Override public String toString() {
+        return JsonUtil.toJson(this);
+    }
 
 }

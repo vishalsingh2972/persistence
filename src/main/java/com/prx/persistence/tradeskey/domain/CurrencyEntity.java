@@ -13,24 +13,31 @@
 
 package com.prx.persistence.tradeskey.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import com.prx.commons.util.JsonUtil;
 import java.io.Serializable;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import static javax.persistence.FetchType.LAZY;
+import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.AUTO;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
+ * CurrencyEntity.
  *
- * @author Luis A. Mata <luis.antonio.mata@gmail.com>
+ * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
  */
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+@Setter
+@Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "currency", schema = "tradeskey")
 public class CurrencyEntity implements Serializable {
 
@@ -46,5 +53,9 @@ public class CurrencyEntity implements Serializable {
     private Boolean active;
     @OneToOne(fetch = LAZY, optional = false, targetEntity = ActiveTypeEntity.class)
     @JoinColumn(name = "fk_active_type_id")
-    private ActiveTypeEntity activeType;
+    private transient ActiveTypeEntity activeType;
+
+    @Override public String toString() {
+        return JsonUtil.toJson(this);
+    }
 }

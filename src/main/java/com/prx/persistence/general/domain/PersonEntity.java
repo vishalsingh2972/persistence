@@ -29,8 +29,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
+ * Service.
  *
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
  */
 @Getter
 @Setter
