@@ -24,6 +24,7 @@ import javax.persistence.IdClass;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -36,6 +37,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "ticker", schema = "tradeskey")
 @IdClass(TradeskeyTickerPK.class)
 public class TradeskeyTicker implements Serializable {
