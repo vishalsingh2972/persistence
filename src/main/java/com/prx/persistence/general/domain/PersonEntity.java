@@ -1,32 +1,43 @@
+/*
+ *  @(#)PersonEntity.java
+ *
+ *  Copyright (c) Luis Antonio Mata Mata. All rights reserved.
+ *
+ *  All rights to this product are owned by Luis Antonio Mata Mata and may only
+ *  be used under the terms of its associated license document. You may NOT
+ *  copy, modify, sublicense, or distribute this source file or portions of
+ *  it unless previously authorized in writing by Luis Antonio Mata Mata.
+ *  In any event, this notice and the above copyright must always be included
+ *  verbatim with this file.
+ */
+
 package com.prx.persistence.general.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import com.prx.commons.util.JsonUtil;
+import java.io.Serializable;
+import java.time.LocalDate;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Set;
-
-import static com.prx.commons.util.JsonUtil.toJson;
-import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.GenerationType.AUTO;
-import static javax.persistence.GenerationType.IDENTITY;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
+ * Service.
  *
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
+ * @version 1.0.2.20200904-01, 2020-10-25
  */
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode
 @Table(name = "person", schema = "general")
 public class PersonEntity implements Serializable {
 
@@ -52,11 +63,11 @@ public class PersonEntity implements Serializable {
     @Column(name = "gender")
     private String gender;
     @Column(name = "birthdate")
-    private LocalDateTime birthdate;
+    private LocalDate birthdate;
 
     @Override
     public String toString() {
-        return toJson(this);
+        return JsonUtil.toJson(this);
     }
 
 }
