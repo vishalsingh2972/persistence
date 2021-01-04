@@ -10,7 +10,6 @@
  *  In any event, this notice and the above copyright must always be included
  *  verbatim with this file.
  */
-
 package com.prx.persistence.general.domain;
 
 import com.prx.commons.util.JsonUtil;

@@ -19,12 +19,14 @@ class ServiceTest {
 
         service.setId(1);
         service.setName("Nombre de aplicación");
-        service.setApplication(new Application());
+        service.setDescription("Descripción de servicio");
+        service.setStatus(true);
 
         assertAll("Test Gettes and Setters",
             () -> assertNotNull(service.getId()),
             () -> assertNotNull(service.getName()),
-            () -> assertNotNull(service.getApplication()),
+            () -> assertNotNull(service.getDescription()),
+            () -> assertNotNull(service.getStatus()),
             () -> assertNotNull(service.toString()),
             () -> assertNotEquals(1, service.hashCode()),
             () -> assertNotEquals(new Service(), service)

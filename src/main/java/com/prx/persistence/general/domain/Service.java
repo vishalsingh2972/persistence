@@ -14,20 +14,13 @@
 package com.prx.persistence.general.domain;
 
 import com.prx.commons.util.JsonUtil;
-import java.io.Serializable;
-import static javax.persistence.CascadeType.REFRESH;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import static javax.persistence.FetchType.LAZY;
-import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Service.
@@ -48,9 +41,10 @@ public class Service implements Serializable {
     private Integer id;
     @Column(name = "name")
     private String name;
-    @ManyToOne(cascade = REFRESH, fetch = LAZY)
-    @JoinColumn(name = "application_id", referencedColumnName = "id")
-    private transient Application application;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "status")
+    private Boolean status;
 
     @Override
     public String toString() {

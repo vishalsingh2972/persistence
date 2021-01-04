@@ -1,8 +1,6 @@
 package com.prx.persistence.general.domain;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -31,6 +29,5 @@ class AddressTest {
             () -> assertNotEquals(new Address(), address)
                  );
     }
-
-
+    
 }
