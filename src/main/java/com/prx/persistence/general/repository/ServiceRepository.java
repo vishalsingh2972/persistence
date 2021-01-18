@@ -10,14 +10,13 @@
  *  In any event, this notice and the above copyright must always be included
  *  verbatim with this file.
  */
-
 package com.prx.persistence.general.repository;
 
-import com.prx.persistence.general.domain.Service;
+import com.prx.persistence.general.domain.ServiceEntity;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
  */
-public interface ServiceRepository extends CrudRepository<Service, Long> {
+public interface ServiceRepository extends CrudRepository<ServiceEntity, Long> {
 }

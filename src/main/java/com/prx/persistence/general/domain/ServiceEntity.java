@@ -1,5 +1,5 @@
 /*
- *  @(#)ExchangeInstrumentPK.java
+ *  @(#)Service.java
  *
  *  Copyright (c) Luis Antonio Mata Mata. All rights reserved.
  *
@@ -10,39 +10,43 @@
  *  In any event, this notice and the above copyright must always be included
  *  verbatim with this file.
  */
-
-package com.prx.persistence.tradeskey.domain;
+package com.prx.persistence.general.domain;
 
 import com.prx.commons.util.JsonUtil;
-import java.io.Serializable;
-import javax.persistence.CascadeType;
-import javax.persistence.Embeddable;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import static javax.persistence.GenerationType.IDENTITY;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
- * ExchangeInstrumentPK.
+ * Service.
  *
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
  * @version 1.0.2.20200904-01, 2020-10-25
  */
 @Getter
 @Setter
-@Embeddable
+@Entity
 @NoArgsConstructor
-public class ExchangeInstrumentPK implements Serializable {
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_instrument", referencedColumnName = "id_instrument")
-    private InstrumentEntity instrument;
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_exchange", referencedColumnName = "id_exchange")
-    private ExchangeEntity exchange;
+@Table(name = "service", schema = "general")
+public class ServiceEntity implements Serializable {
 
-    @Override public String toString() {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "status")
+    private Boolean status;
+
+    @Override
+    public String toString() {
         return JsonUtil.toJson(this);
     }
 

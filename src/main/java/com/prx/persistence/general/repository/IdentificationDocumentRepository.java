@@ -10,14 +10,13 @@
  *  In any event, this notice and the above copyright must always be included
  *  verbatim with this file.
  */
-
 package com.prx.persistence.general.repository;
 
-import com.prx.persistence.general.domain.IdentificationDocument;
+import com.prx.persistence.general.domain.IdentificationDocumentEntity;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
  */
-public interface IdentificationDocumentRepository extends CrudRepository<IdentificationDocument, Long> {
+public interface IdentificationDocumentRepository extends CrudRepository<IdentificationDocumentEntity, Long> {
 }

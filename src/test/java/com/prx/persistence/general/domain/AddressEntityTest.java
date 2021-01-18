@@ -9,15 +9,15 @@ import org.junit.jupiter.api.Test;
  * @author Luis Antonio Mata
  * @version 1.0.0, 21-10-2020
  */
-class AddressTest {
+class AddressEntityTest {
 
     @Test
     void gettersAndSetters(){
-        final var address = new Address();
+        final var address = new AddressEntity();
         address.setId(1);
         address.setPerson(new PersonEntity());
         address.setZipcode("1010-9");
-        address.setDescription("Descripcion de dirección");
+        address.setDescription("Descripción de dirección");
 
         assertAll("Test Getters And Setters",
             () -> assertNotNull(address.getId()),
@@ -26,7 +26,7 @@ class AddressTest {
             () -> assertNotNull(address.getDescription()),
             () -> assertNotNull(address.toString()),
             () -> assertNotEquals(1, address.hashCode()),
-            () -> assertNotEquals(new Address(), address)
+            () -> assertNotEquals(new AddressEntity(), address)
                  );
     }
     

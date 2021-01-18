@@ -10,23 +10,19 @@
  *  In any event, this notice and the above copyright must always be included
  *  verbatim with this file.
  */
-
 package com.prx.persistence.general.domain;
 
 import com.prx.commons.util.JsonUtil;
-import java.io.Serializable;
-import java.time.LocalDate;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * Service.

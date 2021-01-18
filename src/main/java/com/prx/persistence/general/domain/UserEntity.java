@@ -10,25 +10,21 @@
  *  In any event, this notice and the above copyright must always be included
  *  verbatim with this file.
  */
-
 package com.prx.persistence.general.domain;
 
 import com.prx.commons.util.JsonUtil;
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
-import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.util.Set;
 
 /**
  * UserEntity.
@@ -62,6 +58,15 @@ public class UserEntity implements Serializable {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private PersonEntity person;
+    @OneToMany(mappedBy = "user",
+        fetch = EAGER,
+        cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+        })
+    private Set<UserRolEntity> userRol;
+
+
 
     @Override
     public String toString() {

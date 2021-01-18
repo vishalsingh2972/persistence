@@ -1,12 +1,11 @@
 package com.prx.persistence.general.domain;
 
 import com.prx.commons.enums.types.IdentificationType;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import org.junit.jupiter.api.Test;
 
 /**
  * IdentificationDocumentTest.
@@ -14,11 +13,11 @@ import org.junit.jupiter.api.Test;
  * @author Luis Antonio Mata
  * @version 1.0.0, 22-10-2020
  */
-class IdentificationDocumentTest {
+class IdentificationDocumentEntityTest {
 
     @Test
     void gettersAndSetters(){
-        final var identificationDocument = new IdentificationDocument();
+        final var identificationDocument = new IdentificationDocumentEntity();
 
         identificationDocument.setId(1);
         identificationDocument.setNumber(114);
@@ -34,7 +33,7 @@ class IdentificationDocumentTest {
             () -> assertNotNull(identificationDocument.getExpirationDate()),
             () -> assertNotNull(identificationDocument.getIdentificationType()),
             () -> assertNotEquals(1, identificationDocument.hashCode()),
-            () -> assertNotEquals(new IdentificationDocument(), identificationDocument)
+            () -> assertNotEquals(new IdentificationDocumentEntity(), identificationDocument)
                  );
     }
 

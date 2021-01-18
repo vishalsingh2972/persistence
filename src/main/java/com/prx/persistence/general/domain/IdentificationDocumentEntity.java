@@ -10,26 +10,20 @@
  *  In any event, this notice and the above copyright must always be included
  *  verbatim with this file.
  */
-
 package com.prx.persistence.general.domain;
 
 import com.prx.commons.enums.types.IdentificationType;
 import com.prx.commons.util.JsonUtil;
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import static javax.persistence.CascadeType.REFRESH;
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import static javax.persistence.FetchType.LAZY;
-import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * IdentificationDocument.
@@ -42,7 +36,7 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @Table(name = "identification_document", schema = "general")
-public class IdentificationDocument implements Serializable {
+public class IdentificationDocumentEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
