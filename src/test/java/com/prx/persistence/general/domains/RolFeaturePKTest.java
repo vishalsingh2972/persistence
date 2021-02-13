@@ -13,10 +13,11 @@
 
 package com.prx.persistence.general.domains;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * RolFeaturePKTest.
@@ -35,7 +36,7 @@ class RolFeaturePKTest {
         final var featureEntity = new FeatureEntity();
 
         featureEntity.setId(1L);
-        featureEntity.setStatus(true);
+        featureEntity.setActive(true);
         featureEntity.setName("Nombre de característica");
         featureEntity.setDescription("Descripción de característica");
         featureEntity.setRolFeatures(features);
@@ -43,9 +44,9 @@ class RolFeaturePKTest {
         rolEntity.setId(3);
         rolEntity.setName("Rol 0001");
         rolEntity.setDescription("Descripción del rol");
-        rolEntity.setStatus(true);
+        rolEntity.setActive(true);
         rolEntity.setRolFeatures(features);
-        rolEntity.setUserRoles(users);
+        rolEntity.setUserRolEntities(users);
 
         rolFeaturePk.setFeature(featureEntity);
         rolFeaturePk.setRol(rolEntity);

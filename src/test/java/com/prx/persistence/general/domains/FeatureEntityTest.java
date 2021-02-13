@@ -31,7 +31,7 @@ class FeatureEntityTest {
         final var rolFeatures = new HashSet<RolFeatureEntity>();
 
         featureEntity.setId(1L);
-        featureEntity.setStatus(true);
+        featureEntity.setActive(true);
         featureEntity.setName("Nombre de característica");
         featureEntity.setDescription("Descripción de característica");
         featureEntity.setRolFeatures(rolFeatures);
@@ -40,7 +40,7 @@ class FeatureEntityTest {
             ()-> assertNotNull(featureEntity.getId()),
             ()-> assertNotNull(featureEntity.getName()),
             ()-> assertNotNull(featureEntity.toString()),
-            ()-> assertNotNull(featureEntity.getStatus()),
+            ()-> assertNotNull(featureEntity.getActive()),
             ()-> assertNotNull(featureEntity.getDescription()),
             ()-> assertNotNull(featureEntity.getRolFeatures()),
             ()-> assertNotEquals(1, featureEntity.hashCode()),

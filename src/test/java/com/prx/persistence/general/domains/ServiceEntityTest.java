@@ -18,13 +18,13 @@ class ServiceEntityTest {
         service.setId(1);
         service.setName("Nombre de aplicación");
         service.setDescription("Descripción de servicio");
-        service.setStatus(true);
+        service.setActive(true);
 
         assertAll("Test Getters and Setters",
             () -> assertNotNull(service.getId()),
             () -> assertNotNull(service.getName()),
             () -> assertNotNull(service.getDescription()),
-            () -> assertNotNull(service.getStatus()),
+            () -> assertNotNull(service.getActive()),
             () -> assertNotNull(service.toString()),
             () -> assertNotEquals(1, service.hashCode()),
             () -> assertNotEquals(new ServiceEntity(), service)

@@ -39,8 +39,8 @@ public class RolFeatureEntity implements Serializable {
     @Id
     @Column(name = "feature_id")
     private FeatureEntity feature;
-    @Column(name = "status")
-    private Boolean status;
+    @Column(name = "active")
+    private Boolean active;
 
     @Override
     public String toString() {

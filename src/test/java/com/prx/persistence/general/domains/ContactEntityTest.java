@@ -18,7 +18,7 @@ class ContactEntityTest {
         contactTypeEntity.setId(1);
         contactTypeEntity.setName("Tipo de contacto 0001");
         contactTypeEntity.setDescription("Descripción para tipo de contacto");
-        contactTypeEntity.setStatus(true);
+        contactTypeEntity.setActive(true);
 
         contactEntity.setId(1);
         contactEntity.setActive(true);

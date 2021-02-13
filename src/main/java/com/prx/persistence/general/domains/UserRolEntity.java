@@ -40,8 +40,8 @@ public class UserRolEntity implements Serializable {
     @Id
     @Column(name = "rol_id")
     private RolEntity rol;
-    @Column(name = "status")
-    private Boolean status;
+    @Column(name = "active")
+    private Boolean active;
 
     @Override public String toString() {
         return JsonUtil.toJson(this);

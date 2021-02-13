@@ -35,17 +35,17 @@ class RolEntityTest {
         rolEntity.setId(3);
         rolEntity.setName("Rol 0001");
         rolEntity.setDescription("Descripción del rol");
-        rolEntity.setStatus(true);
+        rolEntity.setActive(true);
         rolEntity.setRolFeatures(features);
-        rolEntity.setUserRoles(users);
+        rolEntity.setUserRolEntities(users);
 
         assertAll("Test Getters and Setters",
             () -> assertNotNull(rolEntity.getId()),
             () -> assertNotNull(rolEntity.getName()),
             () -> assertNotNull(rolEntity.getDescription()),
-            () -> assertNotNull(rolEntity.getStatus()),
+            () -> assertNotNull(rolEntity.getActive()),
             () -> assertNotNull(rolEntity.getRolFeatures()),
-            () -> assertNotNull(rolEntity.getUserRoles()),
+            () -> assertNotNull(rolEntity.getUserRolEntities()),
             () -> assertNotNull(rolEntity.toString()),
             () -> assertNotEquals(1, rolEntity.hashCode()),
             () -> assertNotEquals(new RolEntity(), rolEntity)

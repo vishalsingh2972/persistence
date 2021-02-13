@@ -44,15 +44,13 @@ public class PersonEntity implements Serializable {
     @Column(name = "id")
     private Long id;
     @NotNull
-    @Size(max = 12)
+    @Size(min = 2, max = 12)
     @Column(name = "first_name")
     private String name;
-    @NotNull
-    @Size(max = 12)
     @Column(name = "middle_name")
     private String middleName;
     @NotNull
-    @Size(max = 12)
+    @Size(min = 2, max = 12)
     @Column(name = "last_name")
     private String lastName;
     @Size(max = 1)

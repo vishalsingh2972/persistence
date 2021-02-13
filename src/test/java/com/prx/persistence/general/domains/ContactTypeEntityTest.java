@@ -29,14 +29,14 @@ class ContactTypeEntityTest {
         contactTypeEntity.setId(1);
         contactTypeEntity.setName("Tipo de contacto 0001");
         contactTypeEntity.setDescription("Descripción para tipo de contacto");
-        contactTypeEntity.setStatus(true);
+        contactTypeEntity.setActive(true);
 
         assertAll("Test Getters And Setters",
             () -> assertNotNull(contactTypeEntity.getId()),
             () -> assertNotNull(contactTypeEntity.getName()),
             () -> assertNotNull(contactTypeEntity.getDescription()),
             () -> assertNotNull(contactTypeEntity.toString()),
-            ()-> assertNotNull(contactTypeEntity.getStatus()),
+            ()-> assertNotNull(contactTypeEntity.getActive()),
             () -> assertNotEquals(1, contactTypeEntity.hashCode()),
             () -> assertNotEquals(new ContactTypeEntity(), contactTypeEntity)
         );

@@ -44,15 +44,10 @@ public class RolEntity implements Serializable {
     private String name;
     @Column(name = "description")
     private String description;
-    @Column(name = "status")
-    private Boolean status;
-    @OneToMany(mappedBy = "rol",
-        fetch = LAZY,
-        cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-        })
-    private Set<UserRolEntity> userRoles;
+    @Column(name = "active")
+    private Boolean active;
+    @OneToMany(mappedBy = "rol")
+    private Set<UserRolEntity> userRolEntities;
     @OneToMany(mappedBy = "rol",
         fetch = LAZY,
         cascade = {

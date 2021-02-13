@@ -34,7 +34,7 @@ import java.util.Set;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "rol", schema = "general")
+@Table(name = "feature", schema = "general")
 public class FeatureEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -44,8 +44,8 @@ public class FeatureEntity implements Serializable {
     private String name;
     @Column(name = "description")
     private String description;
-    @Column(name = "status")
-    private Boolean status;
+    @Column(name = "active")
+    private Boolean active;
     @OneToMany(mappedBy = "feature",
         fetch = LAZY,
         cascade = {

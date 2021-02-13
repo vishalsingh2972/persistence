@@ -13,9 +13,6 @@
 package com.prx.persistence.general.domains;
 
 import com.prx.commons.util.JsonUtil;
-import static javax.persistence.FetchType.EAGER;
-import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.IDENTITY;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +22,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Set;
+
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * UserEntity.
@@ -58,15 +58,8 @@ public class UserEntity implements Serializable {
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private PersonEntity person;
-    @OneToMany(mappedBy = "user",
-        fetch = EAGER,
-        cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-        })
+    @OneToMany(mappedBy = "user")
     private Set<UserRolEntity> userRol;
-
-
 
     @Override
     public String toString() {

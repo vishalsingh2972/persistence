@@ -13,10 +13,11 @@
 
 package com.prx.persistence.general.domains;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * UserRolEntityTest.
@@ -36,9 +37,9 @@ class UserRolEntityTest {
         rolEntity.setId(3);
         rolEntity.setName("Rol 0001");
         rolEntity.setDescription("Descripción del rol");
-        rolEntity.setStatus(true);
+        rolEntity.setActive(true);
         rolEntity.setRolFeatures(features);
-        rolEntity.setUserRoles(users);
+        rolEntity.setUserRolEntities(users);
 
         userEntity.setId(3L);
         userEntity.setAlias("Alias de usuario");
@@ -49,13 +50,13 @@ class UserRolEntityTest {
 
         userRolEntity.setUser(userEntity);
         userRolEntity.setRol(rolEntity);
-        userRolEntity.setStatus(true);
+        userRolEntity.setActive(true);
 
         assertAll("Test Getters and Setters",
             () -> assertNotNull(userRolEntity.getRol()),
             () -> assertNotNull(userRolEntity.getUser()),
             () -> assertNotNull(userRolEntity.toString()),
-            () -> assertNotNull(userRolEntity.getStatus()),
+            () -> assertNotNull(userRolEntity.getActive()),
             () -> assertNotEquals(1, userRolEntity.hashCode()),
             () -> assertNotEquals(new UserRolEntity(), userRolEntity)
         );

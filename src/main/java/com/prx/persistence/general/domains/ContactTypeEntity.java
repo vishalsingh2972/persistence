@@ -41,8 +41,8 @@ public class ContactTypeEntity {
     private String name;
     @Column(name = "description")
     private String description;
-    @Column(name = "status")
-    private Boolean status;
+    @Column(name = "active")
+    private Boolean active;
 
     @Override
     public String toString() {

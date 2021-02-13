@@ -13,10 +13,11 @@
 
 package com.prx.persistence.general.domains;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * RolFeatureEntityTest.
@@ -36,22 +37,22 @@ class RolFeatureEntityTest {
         rolEntity.setId(3);
         rolEntity.setName("Rol 0001");
         rolEntity.setDescription("Descripción del rol");
-        rolEntity.setStatus(true);
+        rolEntity.setActive(true);
         rolEntity.setRolFeatures(features);
-        rolEntity.setUserRoles(users);
+        rolEntity.setUserRolEntities(users);
         featureEntity.setId(1L);
-        featureEntity.setStatus(true);
+        featureEntity.setActive(true);
         featureEntity.setName("Nombre de característica");
         featureEntity.setDescription("Descripción de característica");
 
         rolFeatures.setFeature(featureEntity);
         rolFeatures.setRol(rolEntity);
-        rolFeatures.setStatus(true);
+        rolFeatures.setActive(true);
 
         assertAll("Test Getters and Setters",
             () -> assertNotNull(rolFeatures.getRol()),
             () -> assertNotNull(rolFeatures.getFeature()),
-            () -> assertNotNull(rolFeatures.getStatus()),
+            () -> assertNotNull(rolFeatures.getActive()),
             () -> assertNotNull(rolFeatures.toString()),
             () -> assertNotEquals(1, rolFeatures.hashCode()),
             () -> assertNotEquals(new RolFeatureEntity(), rolFeatures)
