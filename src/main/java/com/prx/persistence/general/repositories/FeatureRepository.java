@@ -13,7 +13,11 @@
 package com.prx.persistence.general.repositories;
 
 import com.prx.persistence.general.domains.FeatureEntity;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Optional;
 
 /**
  * FeatureRepository.
@@ -22,5 +26,14 @@ import org.springframework.data.repository.CrudRepository;
  * @version 1.0.3.20200904-01, 18-01-2021
  */
 public interface FeatureRepository extends CrudRepository<FeatureEntity, Long> {
+
+    /**
+     * Busca un feature en base al nombre.
+     *
+     * @param name {@link String}
+     * @return Objeto de tipo {@link Optional}<{@link FeatureEntity>
+     */
+    @Query(value = "SELECT f FROM FeatureEntity f WHERE f.name = :name ORDER BY f.name DESC")
+    Optional<FeatureEntity> findByName(@Param("name") String name);
 
 }
