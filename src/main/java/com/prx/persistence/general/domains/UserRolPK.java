@@ -19,6 +19,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * UserRolPK.
@@ -42,4 +43,16 @@ public class UserRolPK implements Serializable {
         return JsonUtil.toJson(this);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserRolPK userRolPK = (UserRolPK) o;
+        return user.equals(userRolPK.user) && rol.equals(userRolPK.rol);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, rol);
+    }
 }

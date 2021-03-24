@@ -15,6 +15,7 @@ package com.prx.persistence.general.repositories;
 import com.prx.persistence.general.domains.RolEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,22 +29,15 @@ import java.util.Optional;
 public interface RolRepository extends CrudRepository<RolEntity, Integer> {
 
     /**
-     * Busca todos los registros de roles en base al criterio de estado activo y/o activo.
+     * Busca todos los registros de roles en base a un conjunto de identificadores.
      *
-     * @param includeInactive {@link boolean}
-     * @return Objeto de tipo {@link Optional} con elemento {@link List}
-     */
-    @Query(value = "SELECT r FROM RolEntity r WHERE r.active = :includeInactive ORDER BY r.name")
-    Optional<List<RolEntity>> findAll(boolean includeInactive);
-
-    /**
-     * Busca todos los registros de roles en base al criterio de estado activo y/o activo y un conjunto de identificadores.
-     *
-     * @param includeInactive {@link boolean}
      * @param idRoles {@link Iterable} con elmentos de tipo {@link Integer}
      * @return Objeto de tipo {@link Optional} con elemento {@link List}
      */
-    @Query(value = "SELECT r FROM RolEntity r WHERE r.active = :includeInactive AND r.id IN :idRoles ORDER BY r.name")
-    Optional<List<RolEntity>> findAllById(boolean includeInactive, Iterable<Integer> idRoles);
+    @Query(value = "SELECT r FROM RolEntity r WHERE r.id IN :idRoles ORDER BY r.id ASC")
+    Optional<List<RolEntity>> findAllById(@Param("idRoles") List<Integer> idRoles);
+
+    @Query(value = "SELECT ur.rol FROM UserRolEntity ur WHERE ur.user.id = :idUser ORDER BY ur.id ASC")
+    Optional<List<RolEntity>> findAllByUserId(@Param("idUser") long idUser);
 
 }

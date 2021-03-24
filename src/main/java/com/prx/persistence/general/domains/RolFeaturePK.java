@@ -19,6 +19,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * RolFeaturePK.
@@ -40,5 +41,18 @@ public class RolFeaturePK implements Serializable {
 
     @Override public String toString() {
         return JsonUtil.toJson(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RolFeaturePK that = (RolFeaturePK) o;
+        return rol.equals(that.rol) && feature.equals(that.feature);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rol, feature);
     }
 }

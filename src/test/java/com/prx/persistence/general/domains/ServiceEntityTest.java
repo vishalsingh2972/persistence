@@ -24,7 +24,7 @@ class ServiceEntityTest {
             () -> assertNotNull(service.getId()),
             () -> assertNotNull(service.getName()),
             () -> assertNotNull(service.getDescription()),
-            () -> assertNotNull(service.getActive()),
+            () -> assertTrue(service.isActive()),
             () -> assertNotNull(service.toString()),
             () -> assertNotEquals(1, service.hashCode()),
             () -> assertNotEquals(new ServiceEntity(), service)

@@ -13,8 +13,6 @@
 package com.prx.persistence.general.domains;
 
 import com.prx.commons.util.JsonUtil;
-import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.IDENTITY;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +20,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
+
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * RolEntity.
@@ -37,24 +38,24 @@ import java.util.Set;
 public class RolEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     @Column(name = "name")
     private String name;
     @Column(name = "description")
     private String description;
-    @Column(name = "active")
-    private Boolean active;
     @OneToMany(mappedBy = "rol")
     private Set<UserRolEntity> userRolEntities;
     @OneToMany(mappedBy = "rol",
-        fetch = LAZY,
-        cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-        })
+            fetch = LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
     private Set<RolFeatureEntity> rolFeatures;
+    @Column(name = "active")
+    private boolean active;
 
     @Override
     public String toString() {

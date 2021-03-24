@@ -13,10 +13,11 @@
 
 package com.prx.persistence.general.domains;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * RolEntityTest.
@@ -43,7 +44,7 @@ class RolEntityTest {
             () -> assertNotNull(rolEntity.getId()),
             () -> assertNotNull(rolEntity.getName()),
             () -> assertNotNull(rolEntity.getDescription()),
-            () -> assertNotNull(rolEntity.getActive()),
+            () -> assertTrue(rolEntity.isActive()),
             () -> assertNotNull(rolEntity.getRolFeatures()),
             () -> assertNotNull(rolEntity.getUserRolEntities()),
             () -> assertNotNull(rolEntity.toString()),

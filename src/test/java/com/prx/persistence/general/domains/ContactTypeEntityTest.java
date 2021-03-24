@@ -36,7 +36,7 @@ class ContactTypeEntityTest {
             () -> assertNotNull(contactTypeEntity.getName()),
             () -> assertNotNull(contactTypeEntity.getDescription()),
             () -> assertNotNull(contactTypeEntity.toString()),
-            ()-> assertNotNull(contactTypeEntity.getActive()),
+            ()-> assertTrue(contactTypeEntity.isActive()),
             () -> assertNotEquals(1, contactTypeEntity.hashCode()),
             () -> assertNotEquals(new ContactTypeEntity(), contactTypeEntity)
         );
