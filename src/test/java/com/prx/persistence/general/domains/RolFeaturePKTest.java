@@ -13,11 +13,10 @@
 
 package com.prx.persistence.general.domains;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * RolFeaturePKTest.
@@ -25,15 +24,21 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author <a href='mailto:luis.antonio.mata@gmail.com'>Luis Antonio Mata.</a>
  * @version 1.0.3.20200904-01, 18-01-2021
  */
-class RolFeaturePKTest {
+public class RolFeaturePKTest {
 
     @Test
-    void gettersAndSetters() {
+    public void gettersAndSetters() {
         final var rolFeaturePk = new RolFeaturePK();
         final var rolEntity = new RolEntity();
         final var features = new HashSet<RolFeatureEntity>();
         final var users = new HashSet<UserRolEntity>();
         final var featureEntity = new FeatureEntity();
+
+        final var rolFeaturePk2 = new RolFeaturePK();
+        final var rolEntity2 = new RolEntity();
+        final var features2 = new HashSet<RolFeatureEntity>();
+        final var users2 = new HashSet<UserRolEntity>();
+        final var featureEntity2 = new FeatureEntity();
 
         featureEntity.setId(1L);
         featureEntity.setActive(true);
@@ -51,14 +56,31 @@ class RolFeaturePKTest {
         rolFeaturePk.setFeature(featureEntity);
         rolFeaturePk.setRol(rolEntity);
 
-        assertAll("Test Getters and Setters",
-            () -> assertNotNull(rolFeaturePk.getRol()),
-            () -> assertNotNull(rolFeaturePk.getFeature()),
-            () -> assertNotNull(rolFeaturePk.toString()),
-            () -> assertNotEquals(1, rolFeaturePk.hashCode()),
-            () -> assertNotEquals(new RolFeaturePK(), rolFeaturePk)
+        featureEntity2.setId(1L);
+        featureEntity2.setActive(true);
+        featureEntity2.setName("Nombre de característica 2");
+        featureEntity2.setDescription("Descripción de característica 2");
+        featureEntity2.setRolFeatures(features);
+
+        rolEntity2.setId(3);
+        rolEntity2.setName("Rol 0002");
+        rolEntity2.setDescription("Descripción del rol 2");
+        rolEntity2.setActive(true);
+        rolEntity2.setRolFeatures(features);
+        rolEntity2.setUserRolEntities(users);
+
+        rolFeaturePk2.setFeature(featureEntity2);
+        rolFeaturePk2.setRol(rolEntity2
         );
 
+        Assertions.assertAll("Test Getters and Setters",
+            () -> Assertions.assertNotNull(rolFeaturePk.getRol()),
+            () -> Assertions.assertNotNull(rolFeaturePk.getFeature()),
+            () -> Assertions.assertNotNull(rolFeaturePk.toString()),
+            () -> Assertions.assertNotEquals(1, rolFeaturePk.hashCode()),
+            () -> Assertions.assertEquals(rolFeaturePk, rolFeaturePk),
+            () -> Assertions.assertNotEquals(rolFeaturePk2, rolFeaturePk)
+        );
     }
 
 }
