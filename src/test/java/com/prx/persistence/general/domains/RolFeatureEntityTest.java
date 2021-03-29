@@ -13,11 +13,10 @@
 
 package com.prx.persistence.general.domains;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * RolFeatureEntityTest.
@@ -49,13 +48,13 @@ class RolFeatureEntityTest {
         rolFeatures.setRol(rolEntity);
         rolFeatures.setActive(true);
 
-        assertAll("Test Getters and Setters",
-            () -> assertNotNull(rolFeatures.getRol()),
-            () -> assertNotNull(rolFeatures.getFeature()),
-            () -> assertNotNull(rolFeatures.getActive()),
-            () -> assertNotNull(rolFeatures.toString()),
-            () -> assertNotEquals(1, rolFeatures.hashCode()),
-            () -> assertNotEquals(new RolFeatureEntity(), rolFeatures)
+        Assertions.assertAll("Test Getters and Setters",
+            () -> Assertions.assertNotNull(rolFeatures.getRol()),
+            () -> Assertions.assertNotNull(rolFeatures.getFeature()),
+            () -> Assertions.assertNotNull(rolFeatures.getActive()),
+            () -> Assertions.assertNotNull(rolFeatures.toString()),
+            () -> Assertions.assertNotEquals(1, rolFeatures.hashCode()),
+            () -> Assertions.assertNotEquals(new RolFeatureEntity(), rolFeatures)
         );
     }
 }

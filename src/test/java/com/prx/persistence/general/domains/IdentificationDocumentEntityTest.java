@@ -1,7 +1,7 @@
 package com.prx.persistence.general.domains;
 
 import com.prx.commons.enums.types.IdentificationType;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -25,15 +25,15 @@ class IdentificationDocumentEntityTest {
         identificationDocument.setExpirationDate(LocalDateTime.now(ZoneId.systemDefault()));
         identificationDocument.setIdentificationType(IdentificationType.PASSPORT);
 
-        assertAll("Test Getters And Setters",
-            () -> assertNotNull(identificationDocument.getId()),
-            () -> assertNotNull(identificationDocument.toString()),
-            () -> assertNotNull(identificationDocument.getPerson()),
-            () -> assertNotNull(identificationDocument.getNumber()),
-            () -> assertNotNull(identificationDocument.getExpirationDate()),
-            () -> assertNotNull(identificationDocument.getIdentificationType()),
-            () -> assertNotEquals(1, identificationDocument.hashCode()),
-            () -> assertNotEquals(new IdentificationDocumentEntity(), identificationDocument)
+        Assertions.assertAll("Test Getters And Setters",
+            () -> Assertions.assertNotNull(identificationDocument.getId()),
+            () -> Assertions.assertNotNull(identificationDocument.toString()),
+            () -> Assertions.assertNotNull(identificationDocument.getPerson()),
+            () -> Assertions.assertNotNull(identificationDocument.getNumber()),
+            () -> Assertions.assertNotNull(identificationDocument.getExpirationDate()),
+            () -> Assertions.assertNotNull(identificationDocument.getIdentificationType()),
+            () -> Assertions.assertNotEquals(1, identificationDocument.hashCode()),
+            () -> Assertions.assertNotEquals(new IdentificationDocumentEntity(), identificationDocument)
                  );
     }
 

@@ -1,6 +1,6 @@
 package com.prx.persistence.general.domains;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -19,14 +19,14 @@ class AddressEntityTest {
         address.setZipcode("1010-9");
         address.setDescription("Descripción de dirección");
 
-        assertAll("Test Getters And Setters",
-            () -> assertNotNull(address.getId()),
-            () -> assertNotNull(address.getPerson()),
-            () -> assertNotNull(address.getZipcode()),
-            () -> assertNotNull(address.getDescription()),
-            () -> assertNotNull(address.toString()),
-            () -> assertNotEquals(1, address.hashCode()),
-            () -> assertNotEquals(new AddressEntity(), address)
+        Assertions.assertAll("Test Getters And Setters",
+            () -> Assertions.assertNotNull(address.getId()),
+            () -> Assertions.assertNotNull(address.getPerson()),
+            () -> Assertions.assertNotNull(address.getZipcode()),
+            () -> Assertions.assertNotNull(address.getDescription()),
+            () -> Assertions.assertNotNull(address.toString()),
+            () -> Assertions.assertNotEquals(1, address.hashCode()),
+            () -> Assertions.assertNotEquals(new AddressEntity(), address)
                  );
     }
     

@@ -18,8 +18,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * UserRolPKTest.
  *
@@ -27,6 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 1.0.3.20200904-01, 18-01-2021
  */
 class UserRolPKTest {
+
     @Test
     void gettersAndSetters() {
         final var userRolPK = new UserRolPK();
@@ -55,13 +54,14 @@ class UserRolPKTest {
 
         userRolPK.setUser(userEntity);
         userRolPK.setRol(rolEntity);
+        final var userRolPK3 = userRolPK;
 
         rolEntity2.setId(3);
         rolEntity2.setName("Rol 0002");
         rolEntity2.setDescription("Descripción del rol 2");
         rolEntity2.setActive(true);
-        rolEntity2.setRolFeatures(features);
-        rolEntity2.setUserRolEntities(users);
+        rolEntity2.setRolFeatures(features2);
+        rolEntity2.setUserRolEntities(users2);
 
         userEntity2.setId(4L);
         userEntity2.setAlias("Alias de usuario 2");
@@ -79,7 +79,7 @@ class UserRolPKTest {
             () -> Assertions.assertNotEquals(1, userRolPK.hashCode()),
             () -> Assertions.assertNotEquals(userRolPK2, userRolPK),
             () -> Assertions.assertNotEquals(null, userRolPK),
-            () -> Assertions.assertEquals(userRolPK, userRolPK)
+            () -> Assertions.assertEquals(userRolPK,userRolPK3)
         );
 
     }

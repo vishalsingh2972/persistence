@@ -13,7 +13,7 @@
 
 package com.prx.persistence.general.domains;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -36,15 +36,15 @@ class FeatureEntityTest {
         featureEntity.setDescription("Descripción de característica");
         featureEntity.setRolFeatures(rolFeatures);
 
-        assertAll("Test Getters And Setters",
-            ()-> assertNotNull(featureEntity.getId()),
-            ()-> assertNotNull(featureEntity.getName()),
-            ()-> assertNotNull(featureEntity.toString()),
-            ()-> assertNotNull(featureEntity.getActive()),
-            ()-> assertNotNull(featureEntity.getDescription()),
-            ()-> assertNotNull(featureEntity.getRolFeatures()),
-            ()-> assertNotEquals(1, featureEntity.hashCode()),
-            ()-> assertNotEquals(new FeatureEntity(), featureEntity)
+        Assertions.assertAll("Test Getters And Setters",
+            ()-> Assertions.assertNotNull(featureEntity.getId()),
+            ()-> Assertions.assertNotNull(featureEntity.getName()),
+            ()-> Assertions.assertNotNull(featureEntity.toString()),
+            ()-> Assertions.assertNotNull(featureEntity.getActive()),
+            ()-> Assertions.assertNotNull(featureEntity.getDescription()),
+            ()-> Assertions.assertNotNull(featureEntity.getRolFeatures()),
+            ()-> Assertions.assertNotEquals(1, featureEntity.hashCode()),
+            ()-> Assertions.assertNotEquals(new FeatureEntity(), featureEntity)
         );
     }
 }

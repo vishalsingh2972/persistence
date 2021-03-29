@@ -1,8 +1,6 @@
 package com.prx.persistence.general.domains;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -26,17 +24,17 @@ class UserEntityTest {
         userEntity.setPerson(new PersonEntity());
         userEntity.setUserRol(new HashSet<>());
 
-        assertAll("Test Getters and Setters",
-            () -> assertNotNull(userEntity.getId()),
-            () -> assertNotNull(userEntity.toString()),
-            () -> assertNotNull(userEntity.getAlias()),
-            () -> assertNotNull(userEntity.getPerson()),
-            () -> assertNotNull(userEntity.getActive()),
-            () -> assertNotNull(userEntity.getUserRol()),
-            () -> assertNotNull(userEntity.getPassword()),
-            () -> assertNotEquals(1, userEntity.hashCode()),
-            () -> assertNotEquals(new UserEntity(), userEntity)
-                 );
+        Assertions.assertAll("Test Getters and Setters",
+                () -> Assertions.assertNotNull(userEntity.getId()),
+                () -> Assertions.assertNotNull(userEntity.toString()),
+                () -> Assertions.assertNotNull(userEntity.getAlias()),
+                () -> Assertions.assertNotNull(userEntity.getPerson()),
+                () -> Assertions.assertNotNull(userEntity.getActive()),
+                () -> Assertions.assertNotNull(userEntity.getUserRol()),
+                () -> Assertions.assertNotNull(userEntity.getPassword()),
+                () -> Assertions.assertNotEquals(1, userEntity.hashCode()),
+                () -> Assertions.assertNotEquals(new UserEntity(), userEntity)
+        );
 
     }
 

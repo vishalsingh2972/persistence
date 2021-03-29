@@ -24,10 +24,10 @@ import java.util.HashSet;
  * @author <a href='mailto:luis.antonio.mata@gmail.com'>Luis Antonio Mata.</a>
  * @version 1.0.3.20200904-01, 18-01-2021
  */
-public class RolFeaturePKTest {
+class RolFeaturePKTest {
 
     @Test
-    public void gettersAndSetters() {
+    void gettersAndSetters() {
         final var rolFeaturePk = new RolFeaturePK();
         final var rolEntity = new RolEntity();
         final var features = new HashSet<RolFeatureEntity>();
@@ -55,6 +55,7 @@ public class RolFeaturePKTest {
 
         rolFeaturePk.setFeature(featureEntity);
         rolFeaturePk.setRol(rolEntity);
+        final var rolFeaturePk3 = rolFeaturePk;
 
         featureEntity2.setId(1L);
         featureEntity2.setActive(true);
@@ -66,21 +67,30 @@ public class RolFeaturePKTest {
         rolEntity2.setName("Rol 0002");
         rolEntity2.setDescription("Descripción del rol 2");
         rolEntity2.setActive(true);
-        rolEntity2.setRolFeatures(features);
-        rolEntity2.setUserRolEntities(users);
+        rolEntity2.setRolFeatures(features2);
+        rolEntity2.setUserRolEntities(users2);
 
         rolFeaturePk2.setFeature(featureEntity2);
-        rolFeaturePk2.setRol(rolEntity2
-        );
+        rolFeaturePk2.setRol(rolEntity2);
 
-        Assertions.assertAll("Test Getters and Setters",
-            () -> Assertions.assertNotNull(rolFeaturePk.getRol()),
-            () -> Assertions.assertNotNull(rolFeaturePk.getFeature()),
-            () -> Assertions.assertNotNull(rolFeaturePk.toString()),
-            () -> Assertions.assertNotEquals(1, rolFeaturePk.hashCode()),
-            () -> Assertions.assertEquals(rolFeaturePk, rolFeaturePk),
-            () -> Assertions.assertNotEquals(rolFeaturePk2, rolFeaturePk)
-        );
+        featureEntity2.setId(1L);
+        featureEntity2.setActive(true);
+        featureEntity2.setName("Nombre de característica 2");
+        featureEntity2.setDescription("Descripción de característica 2");
+        featureEntity2.setRolFeatures(features2);
+
+        Assertions.assertNotNull(rolFeaturePk);
+        Assertions.assertNotNull(rolFeaturePk.getRol());
+        Assertions.assertNotNull(rolFeaturePk.getFeature());
+        Assertions.assertNotNull(rolFeaturePk.toString());
+        Assertions.assertNotEquals(1, rolFeaturePk.hashCode());
+        Assertions.assertNotNull(rolFeaturePk2);
+        Assertions.assertNotNull(rolFeaturePk2.getRol());
+        Assertions.assertNotNull(rolFeaturePk2.getFeature());
+        Assertions.assertNotNull(rolFeaturePk2.toString());
+        Assertions.assertNotEquals(1, rolFeaturePk.hashCode());
+        Assertions.assertNotEquals(rolFeaturePk2, rolFeaturePk);
+        Assertions.assertEquals(rolFeaturePk, rolFeaturePk3);
     }
 
 }

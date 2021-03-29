@@ -1,10 +1,9 @@
 package com.prx.persistence.general.domains;
 
-import java.time.LocalDate;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 /**
  * PersonEntityTest.
@@ -25,16 +24,16 @@ class PersonEntityTest {
         personEntity.setLastName("Pedroza");
         personEntity.setBirthdate(LocalDate.of(1979,4,14));
 
-        assertAll("Test Getters And Setters",
-            ()-> assertNotNull(personEntity.getId()),
-            ()-> assertNotNull(personEntity.getName()),
-            ()-> assertNotNull(personEntity.getMiddleName()),
-            ()-> assertNotNull(personEntity.getLastName()),
-            ()-> assertNotNull(personEntity.getGender()),
-            ()-> assertNotNull(personEntity.getBirthdate()),
-            ()-> assertNotNull(personEntity.toString()),
-            ()-> assertNotEquals(1, personEntity.hashCode()),
-            ()-> assertNotEquals(new PersonEntity(), personEntity)
+        Assertions.assertAll("Test Getters And Setters",
+            ()-> Assertions.assertNotNull(personEntity.getId()),
+            ()-> Assertions.assertNotNull(personEntity.getName()),
+            ()-> Assertions.assertNotNull(personEntity.getMiddleName()),
+            ()-> Assertions.assertNotNull(personEntity.getLastName()),
+            ()-> Assertions.assertNotNull(personEntity.getGender()),
+            ()-> Assertions.assertNotNull(personEntity.getBirthdate()),
+            ()-> Assertions.assertNotNull(personEntity.toString()),
+            ()-> Assertions.assertNotEquals(1, personEntity.hashCode()),
+            ()-> Assertions.assertNotEquals(new PersonEntity(), personEntity)
                  );
 
     }

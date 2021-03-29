@@ -13,11 +13,10 @@
 
 package com.prx.persistence.general.domains;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * RolEntityTest.
@@ -40,16 +39,16 @@ class RolEntityTest {
         rolEntity.setRolFeatures(features);
         rolEntity.setUserRolEntities(users);
 
-        assertAll("Test Getters and Setters",
-            () -> assertNotNull(rolEntity.getId()),
-            () -> assertNotNull(rolEntity.getName()),
-            () -> assertNotNull(rolEntity.getDescription()),
-            () -> assertTrue(rolEntity.isActive()),
-            () -> assertNotNull(rolEntity.getRolFeatures()),
-            () -> assertNotNull(rolEntity.getUserRolEntities()),
-            () -> assertNotNull(rolEntity.toString()),
-            () -> assertNotEquals(1, rolEntity.hashCode()),
-            () -> assertNotEquals(new RolEntity(), rolEntity)
+        Assertions.assertAll("Test Getters and Setters",
+            () -> Assertions.assertNotNull(rolEntity.getId()),
+            () -> Assertions.assertNotNull(rolEntity.getName()),
+            () -> Assertions.assertNotNull(rolEntity.getDescription()),
+            () -> Assertions.assertTrue(rolEntity.isActive()),
+            () -> Assertions.assertNotNull(rolEntity.getRolFeatures()),
+            () -> Assertions.assertNotNull(rolEntity.getUserRolEntities()),
+            () -> Assertions.assertNotNull(rolEntity.toString()),
+            () -> Assertions.assertNotEquals(1, rolEntity.hashCode()),
+            () -> Assertions.assertNotEquals(new RolEntity(), rolEntity)
         );
 
     }

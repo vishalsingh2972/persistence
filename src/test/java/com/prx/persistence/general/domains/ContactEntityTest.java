@@ -1,6 +1,6 @@
 package com.prx.persistence.general.domains;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -26,15 +26,15 @@ class ContactEntityTest {
         contactEntity.setContent("Contenido");
         contactEntity.setContactType(contactTypeEntity);
 
-        assertAll("Test Getters And Setters",
-            ()-> assertNotNull(contactEntity.getId()),
-            ()-> assertNotNull(contactEntity.getPerson()),
-            ()-> assertNotNull(contactEntity.getActive()),
-            ()-> assertNotNull(contactEntity.getContent()),
-            ()-> assertNotNull(contactEntity.getContactType()),
-            ()-> assertNotNull(contactEntity.toString()),
-            ()-> assertNotEquals(1, contactEntity.hashCode()),
-            ()-> assertNotEquals(new ContactEntity(), contactEntity)
+        Assertions.assertAll("Test Getters And Setters",
+            ()-> Assertions.assertNotNull(contactEntity.getId()),
+            ()-> Assertions.assertNotNull(contactEntity.getPerson()),
+            ()-> Assertions.assertNotNull(contactEntity.getActive()),
+            ()-> Assertions.assertNotNull(contactEntity.getContent()),
+            ()-> Assertions.assertNotNull(contactEntity.getContactType()),
+            ()-> Assertions.assertNotNull(contactEntity.toString()),
+            ()-> Assertions.assertNotEquals(1, contactEntity.hashCode()),
+            ()-> Assertions.assertNotEquals(new ContactEntity(), contactEntity)
                  );
     }
 

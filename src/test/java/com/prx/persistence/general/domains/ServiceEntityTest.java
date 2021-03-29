@@ -1,6 +1,6 @@
 package com.prx.persistence.general.domains;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -20,14 +20,14 @@ class ServiceEntityTest {
         service.setDescription("Descripción de servicio");
         service.setActive(true);
 
-        assertAll("Test Getters and Setters",
-            () -> assertNotNull(service.getId()),
-            () -> assertNotNull(service.getName()),
-            () -> assertNotNull(service.getDescription()),
-            () -> assertTrue(service.isActive()),
-            () -> assertNotNull(service.toString()),
-            () -> assertNotEquals(1, service.hashCode()),
-            () -> assertNotEquals(new ServiceEntity(), service)
+        Assertions.assertAll("Test Getters and Setters",
+            () -> Assertions.assertNotNull(service.getId()),
+            () -> Assertions.assertNotNull(service.getName()),
+            () -> Assertions.assertNotNull(service.getDescription()),
+            () -> Assertions.assertTrue(service.isActive()),
+            () -> Assertions.assertNotNull(service.toString()),
+            () -> Assertions.assertNotEquals(1, service.hashCode()),
+            () -> Assertions.assertNotEquals(new ServiceEntity(), service)
                  );
     }
 
