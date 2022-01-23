@@ -1,5 +1,5 @@
 /*
- * @(#)RolFeatureEntity.java.
+ * @(#)RolFeaturePK.java.
  *
  * Copyright (c) Luis Antonio Mata Mata. All rights reserved.
  *
@@ -19,31 +19,40 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
- * RolFeatureEntity.
+ * RolFeaturePK.
  *
  * @author <a href='mailto:luis.antonio.mata@gmail.com'>Luis Antonio Mata.</a>
  * @version 1.0.3.20200904-01, 18-01-2021
  */
 @Getter
 @Setter
-@Entity
+@Embeddable
 @NoArgsConstructor
-@IdClass(RolFeaturePK.class)
-@Table(name = "rol_feature", schema = "general")
-public class RolFeatureEntity implements Serializable {
-    @Id
-    @Column(name = "rol_id")
-    private RolEntity rol;
-    @Id
-    @Column(name = "feature_id")
+public class RoleFeaturePK implements Serializable {
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private RoleEntity role;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "feature_id", referencedColumnName = "id")
     private FeatureEntity feature;
-    @Column(name = "active")
-    private Boolean active;
+
+    @Override public String toString() {
+        return JsonUtil.toJson(this);
+    }
 
     @Override
-    public String toString() {
-        return JsonUtil.toJson(this);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RoleFeaturePK that = (RoleFeaturePK) o;
+        return role.equals(that.role) && feature.equals(that.feature);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(role, feature);
     }
 }

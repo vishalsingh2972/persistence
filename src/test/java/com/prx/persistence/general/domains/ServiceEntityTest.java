@@ -16,8 +16,8 @@ class ServiceEntityTest {
         final var service = new ServiceEntity();
 
         service.setId(1);
-        service.setName("Nombre de aplicación");
-        service.setDescription("Descripción de servicio");
+        service.setName("Application name");
+        service.setDescription("Service description");
         service.setActive(true);
 
         Assertions.assertAll("Test Getters and Setters",

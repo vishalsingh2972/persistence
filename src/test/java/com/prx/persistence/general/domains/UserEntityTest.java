@@ -18,11 +18,11 @@ class UserEntityTest {
         final var userEntity = new UserEntity();
 
         userEntity.setId(3L);
-        userEntity.setAlias("Alias de usuario");
+        userEntity.setAlias("Alias");
         userEntity.setActive(true);
         userEntity.setPassword("34567890");
         userEntity.setPerson(new PersonEntity());
-        userEntity.setUserRol(new HashSet<>());
+        userEntity.setUserRole(new HashSet<>());
 
         Assertions.assertAll("Test Getters and Setters",
                 () -> Assertions.assertNotNull(userEntity.getId()),
@@ -30,7 +30,7 @@ class UserEntityTest {
                 () -> Assertions.assertNotNull(userEntity.getAlias()),
                 () -> Assertions.assertNotNull(userEntity.getPerson()),
                 () -> Assertions.assertNotNull(userEntity.getActive()),
-                () -> Assertions.assertNotNull(userEntity.getUserRol()),
+                () -> Assertions.assertNotNull(userEntity.getUserRole()),
                 () -> Assertions.assertNotNull(userEntity.getPassword()),
                 () -> Assertions.assertNotEquals(1, userEntity.hashCode()),
                 () -> Assertions.assertNotEquals(new UserEntity(), userEntity)

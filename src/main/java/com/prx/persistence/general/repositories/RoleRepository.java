@@ -12,7 +12,7 @@
  */
 package com.prx.persistence.general.repositories;
 
-import com.prx.persistence.general.domains.RolEntity;
+import com.prx.persistence.general.domains.RoleEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -26,18 +26,18 @@ import java.util.Optional;
  * @author <a href='mailto:luis.antonio.mata@gmail.com'>Luis Antonio Mata.</a>
  * @version 1.0.3.20200904-01, 18-01-2021
  */
-public interface RolRepository extends CrudRepository<RolEntity, Integer> {
+public interface RoleRepository extends CrudRepository<RoleEntity, Long> {
 
     /**
      * Busca todos los registros de roles en base a un conjunto de identificadores.
      *
-     * @param idRoles {@link Iterable} con elmentos de tipo {@link Integer}
+     * @param idRoles {@link Iterable} con elmentos de tipo {@link Long}
      * @return Objeto de tipo {@link Optional} con elemento {@link List}
      */
-    @Query(value = "SELECT r FROM RolEntity r WHERE r.id IN :idRoles ORDER BY r.id ASC")
-    Optional<List<RolEntity>> findAllById(@Param("idRoles") List<Integer> idRoles);
+    @Query(value = "SELECT r FROM RoleEntity r WHERE r.id IN :idRoles ORDER BY r.id ASC")
+    Optional<List<RoleEntity>> findAllById(@Param("idRoles") List<Long> idRoles);
 
-    @Query(value = "SELECT ur.rol FROM UserRolEntity ur WHERE ur.user.id = :idUser ORDER BY ur.id ASC")
-    Optional<List<RolEntity>> findAllByUserId(@Param("idUser") long idUser);
+    @Query(value = "SELECT ur.role FROM UserRoleEntity ur WHERE ur.user.id = :idUser ORDER BY ur.id ASC")
+    Optional<List<RoleEntity>> findAllByUserId(@Param("idUser") long idUser);
 
 }

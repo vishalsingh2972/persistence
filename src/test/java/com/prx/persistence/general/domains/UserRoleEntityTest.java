@@ -25,40 +25,40 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author <a href='mailto:luis.antonio.mata@gmail.com'>Luis Antonio Mata.</a>
  * @version 1.0.3.20200904-01, 18-01-2021
  */
-class UserRolEntityTest {
+class UserRoleEntityTest {
     @Test
     void gettersAndSetters(){
-        final var userRolEntity = new UserRolEntity();
+        final var userRoleEntity = new UserRoleEntity();
         final var userEntity = new UserEntity();
-        final var rolEntity = new RolEntity();
-        final var features = new HashSet<RolFeatureEntity>();
-        final var users = new HashSet<UserRolEntity>();
+        final var roleEntity = new RoleEntity();
+        final var features = new HashSet<RoleFeatureEntity>();
+        final var users = new HashSet<UserRoleEntity>();
 
-        rolEntity.setId(3);
-        rolEntity.setName("Rol 0001");
-        rolEntity.setDescription("Descripción del rol");
-        rolEntity.setActive(true);
-        rolEntity.setRolFeatures(features);
-        rolEntity.setUserRolEntities(users);
+        roleEntity.setId(3L);
+        roleEntity.setName("Rol 0001");
+        roleEntity.setDescription("Rol description");
+        roleEntity.setActive(true);
+        roleEntity.setRoleFeatures(features);
+        roleEntity.setUserRoleEntities(users);
 
         userEntity.setId(3L);
-        userEntity.setAlias("Alias de usuario");
+        userEntity.setAlias("Alias");
         userEntity.setActive(true);
         userEntity.setPassword("34567890");
         userEntity.setPerson(new PersonEntity());
 
 
-        userRolEntity.setUser(userEntity);
-        userRolEntity.setRol(rolEntity);
-        userRolEntity.setActive(true);
+        userRoleEntity.setUser(userEntity);
+        userRoleEntity.setRole(roleEntity);
+        userRoleEntity.setActive(true);
 
         assertAll("Test Getters and Setters",
-            () -> assertNotNull(userRolEntity.getRol()),
-            () -> assertNotNull(userRolEntity.getUser()),
-            () -> assertNotNull(userRolEntity.toString()),
-            () -> assertNotNull(userRolEntity.getActive()),
-            () -> assertNotEquals(1, userRolEntity.hashCode()),
-            () -> assertNotEquals(new UserRolEntity(), userRolEntity)
+            () -> assertNotNull(userRoleEntity.getRole()),
+            () -> assertNotNull(userRoleEntity.getUser()),
+            () -> assertNotNull(userRoleEntity.toString()),
+            () -> assertNotNull(userRoleEntity.getActive()),
+            () -> assertNotEquals(1, userRoleEntity.hashCode()),
+            () -> assertNotEquals(new UserRoleEntity(), userRoleEntity)
         );
     }
 }

@@ -1,5 +1,5 @@
 /*
- * @(#)RolFeaturePK.java.
+ * @(#)UserRolPK.java.
  *
  * Copyright (c) Luis Antonio Mata Mata. All rights reserved.
  *
@@ -22,7 +22,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * RolFeaturePK.
+ * UserRolPK.
  *
  * @author <a href='mailto:luis.antonio.mata@gmail.com'>Luis Antonio Mata.</a>
  * @version 1.0.3.20200904-01, 18-01-2021
@@ -31,13 +31,13 @@ import java.util.Objects;
 @Setter
 @Embeddable
 @NoArgsConstructor
-public class RolFeaturePK implements Serializable {
+public class UserRolePK implements Serializable {
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "rol_id", referencedColumnName = "id")
-    private RolEntity rol;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private UserEntity user;
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "feature_id", referencedColumnName = "id")
-    private FeatureEntity feature;
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private RoleEntity role;
 
     @Override public String toString() {
         return JsonUtil.toJson(this);
@@ -47,12 +47,12 @@ public class RolFeaturePK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RolFeaturePK that = (RolFeaturePK) o;
-        return rol.equals(that.rol) && feature.equals(that.feature);
+        UserRolePK userRolePK = (UserRolePK) o;
+        return user.equals(userRolePK.user) && role.equals(userRolePK.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rol, feature);
+        return Objects.hash(user, role);
     }
 }

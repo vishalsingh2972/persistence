@@ -16,14 +16,14 @@ class ContactEntityTest {
         final var contactEntity = new ContactEntity();
         final var contactTypeEntity = new ContactTypeEntity();
         contactTypeEntity.setId(1);
-        contactTypeEntity.setName("Tipo de contacto 0001");
-        contactTypeEntity.setDescription("Descripción para tipo de contacto");
+        contactTypeEntity.setName("Contact type 0001");
+        contactTypeEntity.setDescription("Contact type description");
         contactTypeEntity.setActive(true);
 
         contactEntity.setId(1);
         contactEntity.setActive(true);
         contactEntity.setPerson(new PersonEntity());
-        contactEntity.setContent("Contenido");
+        contactEntity.setContent("Content");
         contactEntity.setContactType(contactTypeEntity);
 
         Assertions.assertAll("Test Getters And Setters",

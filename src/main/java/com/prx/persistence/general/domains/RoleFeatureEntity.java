@@ -1,5 +1,5 @@
 /*
- * @(#)RolEntity.java.
+ * @(#)RolFeatureEntity.java.
  *
  * Copyright (c) Luis Antonio Mata Mata. All rights reserved.
  *
@@ -19,13 +19,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
-
-import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * RolEntity.
+ * RolFeatureEntity.
  *
  * @author <a href='mailto:luis.antonio.mata@gmail.com'>Luis Antonio Mata.</a>
  * @version 1.0.3.20200904-01, 18-01-2021
@@ -34,32 +30,20 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "rol", schema = "general")
-public class RolEntity implements Serializable {
-
+@IdClass(RoleFeaturePK.class)
+@Table(name = "role_feature", schema = "general")
+public class RoleFeatureEntity implements Serializable {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "description")
-    private String description;
-    @OneToMany(mappedBy = "rol")
-    private Set<UserRolEntity> userRolEntities;
-    @OneToMany(mappedBy = "rol",
-            fetch = LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            })
-    private Set<RolFeatureEntity> rolFeatures;
+    @Column(name = "role_id")
+    private RoleEntity role;
+    @Id
+    @Column(name = "feature_id")
+    private FeatureEntity feature;
     @Column(name = "active")
-    private boolean active;
+    private Boolean active;
 
     @Override
     public String toString() {
         return JsonUtil.toJson(this);
     }
-
 }
