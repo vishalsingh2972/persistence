@@ -50,8 +50,7 @@ public class RoleEntity implements Serializable {
     @OneToMany(mappedBy = "role",
             fetch = EAGER,
             cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
+                    CascadeType.PERSIST
             })
     private Set<RoleFeatureEntity> roleFeatures;
     @Column(name = "active")
