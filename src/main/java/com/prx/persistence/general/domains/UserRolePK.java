@@ -1,5 +1,5 @@
 /*
- * @(#)UserRolPk.java.
+ * @(#)UserRolPK.java.
  *
  * Copyright (c) Luis Antonio Mata Mata. All rights reserved.
  *
@@ -19,31 +19,40 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
- * UserRolPk.
+ * UserRolPK.
  *
  * @author <a href='mailto:luis.antonio.mata@gmail.com'>Luis Antonio Mata.</a>
  * @version 1.0.3.20200904-01, 18-01-2021
  */
 @Getter
 @Setter
-@Entity
+@Embeddable
 @NoArgsConstructor
-@IdClass(UserRolPK.class)
-@Table(name = "user_rol", schema = "general")
-public class UserRolEntity implements Serializable {
-
-    @Id
-    @Column(name = "user_id")
+public class UserRolePK implements Serializable {
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserEntity user;
-    @Id
-    @Column(name = "rol_id")
-    private RolEntity rol;
-    @Column(name = "active")
-    private Boolean active;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private RoleEntity role;
 
     @Override public String toString() {
         return JsonUtil.toJson(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserRolePK userRolePK = (UserRolePK) o;
+        return user.equals(userRolePK.user) && role.equals(userRolePK.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, role);
     }
 }

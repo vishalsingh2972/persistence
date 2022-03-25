@@ -27,8 +27,8 @@ class ContactTypeEntityTest {
     void gettersAndSetters(){
         final var contactTypeEntity = new ContactTypeEntity();
         contactTypeEntity.setId(1);
-        contactTypeEntity.setName("Tipo de contacto 0001");
-        contactTypeEntity.setDescription("Descripción para tipo de contacto");
+        contactTypeEntity.setName("Contact type 0001");
+        contactTypeEntity.setDescription("Contact type description");
         contactTypeEntity.setActive(true);
 
         Assertions.assertAll("Test Getters And Setters",

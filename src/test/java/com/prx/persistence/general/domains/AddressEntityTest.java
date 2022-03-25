@@ -17,7 +17,7 @@ class AddressEntityTest {
         address.setId(1);
         address.setPerson(new PersonEntity());
         address.setZipcode("1010-9");
-        address.setDescription("Descripción de dirección");
+        address.setDescription("Address description");
 
         Assertions.assertAll("Test Getters And Setters",
             () -> Assertions.assertNotNull(address.getId()),

@@ -39,7 +39,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "user", schema = "general")
 public class UserEntity implements Serializable {
 
-    private static final long serialVersionUID = 135627029337097239L;
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
@@ -59,7 +58,7 @@ public class UserEntity implements Serializable {
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private PersonEntity person;
     @OneToMany(mappedBy = "user")
-    private Set<UserRolEntity> userRol;
+    private Set<UserRoleEntity> userRole;
 
     @Override
     public String toString() {

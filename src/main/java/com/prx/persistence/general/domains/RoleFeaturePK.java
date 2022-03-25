@@ -31,13 +31,9 @@ import java.util.Objects;
 @Setter
 @Embeddable
 @NoArgsConstructor
-public class RolFeaturePK implements Serializable {
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "rol_id", referencedColumnName = "id")
-    private RolEntity rol;
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "feature_id", referencedColumnName = "id")
-    private FeatureEntity feature;
+public class RoleFeaturePK implements Serializable {
+    private Long role;
+    private Long feature;
 
     @Override public String toString() {
         return JsonUtil.toJson(this);
@@ -47,12 +43,12 @@ public class RolFeaturePK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RolFeaturePK that = (RolFeaturePK) o;
-        return rol.equals(that.rol) && feature.equals(that.feature);
+        RoleFeaturePK that = (RoleFeaturePK) o;
+        return role.equals(that.role) && feature.equals(that.feature);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rol, feature);
+        return Objects.hash(role, feature);
     }
 }

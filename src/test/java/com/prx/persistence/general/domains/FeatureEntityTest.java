@@ -28,12 +28,12 @@ class FeatureEntityTest {
     @Test
     void gettersAndSetters(){
         final var featureEntity = new FeatureEntity();
-        final var rolFeatures = new HashSet<RolFeatureEntity>();
+        final var rolFeatures = new HashSet<RoleFeatureEntity>();
 
         featureEntity.setId(1L);
         featureEntity.setActive(true);
-        featureEntity.setName("Nombre de característica");
-        featureEntity.setDescription("Descripción de característica");
+        featureEntity.setName("Feature name");
+        featureEntity.setDescription("Feature description");
         featureEntity.setRolFeatures(rolFeatures);
 
         Assertions.assertAll("Test Getters And Setters",

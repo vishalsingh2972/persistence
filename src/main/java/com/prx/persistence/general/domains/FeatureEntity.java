@@ -14,8 +14,6 @@
 package com.prx.persistence.general.domains;
 
 import com.prx.commons.util.JsonUtil;
-import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.IDENTITY;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +21,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
+
+import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * FeatureEntity.
@@ -47,12 +48,12 @@ public class FeatureEntity implements Serializable {
     @Column(name = "active")
     private Boolean active;
     @OneToMany(mappedBy = "feature",
-        fetch = LAZY,
+        fetch = EAGER,
         cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
         })
-    private Set<RolFeatureEntity> rolFeatures;
+    private Set<RoleFeatureEntity> rolFeatures;
 
     @Override
     public String toString() {
