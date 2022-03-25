@@ -32,12 +32,8 @@ import java.util.Objects;
 @Embeddable
 @NoArgsConstructor
 public class RoleFeaturePK implements Serializable {
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "role_id", referencedColumnName = "id")
-    private RoleEntity role;
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "feature_id", referencedColumnName = "id")
-    private FeatureEntity feature;
+    private Long role;
+    private Long feature;
 
     @Override public String toString() {
         return JsonUtil.toJson(this);

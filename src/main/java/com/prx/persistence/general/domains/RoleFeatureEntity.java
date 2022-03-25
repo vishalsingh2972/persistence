@@ -33,12 +33,13 @@ import java.io.Serializable;
 @IdClass(RoleFeaturePK.class)
 @Table(name = "role_feature", schema = "general")
 public class RoleFeatureEntity implements Serializable {
+
     @Id
     @Column(name = "role_id")
-    private RoleEntity role;
+    private Long role;
     @Id
     @Column(name = "feature_id")
-    private FeatureEntity feature;
+    private Long feature;
     @Column(name = "active")
     private Boolean active;
 

@@ -53,8 +53,8 @@ class RoleFeaturePKTest {
         roleEntity.setRoleFeatures(features);
         roleEntity.setUserRoleEntities(users);
 
-        roleFeaturePk.setFeature(featureEntity);
-        roleFeaturePk.setRole(roleEntity);
+        roleFeaturePk.setFeature(featureEntity.getId());
+        roleFeaturePk.setRole(roleEntity.getId());
         final var roleFeaturePk3 = roleFeaturePk;
 
         featureEntity2.setId(1L);
@@ -70,8 +70,8 @@ class RoleFeaturePKTest {
         roleEntity2.setRoleFeatures(features2);
         roleEntity2.setUserRoleEntities(users2);
 
-        roleFeaturePk2.setFeature(featureEntity2);
-        roleFeaturePk2.setRole(roleEntity2);
+        roleFeaturePk2.setFeature(featureEntity2.getId());
+        roleFeaturePk2.setRole(roleEntity2.getId());
 
         featureEntity2.setId(1L);
         featureEntity2.setActive(true);
