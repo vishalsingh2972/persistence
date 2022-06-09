@@ -19,6 +19,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -37,7 +38,7 @@ public class ContactTypeEntity implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
+    private BigInteger id;
     @Column(name = "name")
     private String name;
     @Column(name = "description")

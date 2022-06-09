@@ -15,8 +15,10 @@ package com.prx.persistence.general.repositories;
 import com.prx.persistence.general.domains.ContactEntity;
 import org.springframework.data.repository.CrudRepository;
 
+import java.math.BigInteger;
+
 /**
  * @author <a href="mailto:luis.antonio.mata@gmail.com">Luis Antonio Mata</a>
  */
-public interface ContactRepository extends CrudRepository<ContactEntity, Long> {
+public interface ContactRepository extends CrudRepository<ContactEntity, BigInteger> {
 }

@@ -23,7 +23,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Set;
 
-import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
@@ -54,7 +54,7 @@ public class UserEntity implements Serializable {
     @NotNull
     @Column(name = "active")
     private Boolean active;
-    @OneToOne(fetch = LAZY)
+    @OneToOne(fetch = EAGER)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private PersonEntity person;
     @OneToMany(mappedBy = "user")
