@@ -13,15 +13,17 @@
 package com.prx.persistence.general.domains;
 
 import com.prx.commons.util.JsonUtil;
-import static javax.persistence.CascadeType.REFRESH;
-import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.IDENTITY;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
+
+import static javax.persistence.CascadeType.REFRESH;
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * ContactEntity.
@@ -39,7 +41,7 @@ public class ContactEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private BigInteger id;
     @Column(name = "content")
     private String content;
     @OneToOne(fetch = LAZY)

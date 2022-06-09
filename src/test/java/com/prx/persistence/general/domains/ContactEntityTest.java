@@ -3,6 +3,8 @@ package com.prx.persistence.general.domains;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigInteger;
+
 /**
  * ContactEntityTest.
  *
@@ -15,12 +17,12 @@ class ContactEntityTest {
     void gettersAndSetters(){
         final var contactEntity = new ContactEntity();
         final var contactTypeEntity = new ContactTypeEntity();
-        contactTypeEntity.setId(1);
+        contactTypeEntity.setId(BigInteger.ONE);
         contactTypeEntity.setName("Contact type 0001");
         contactTypeEntity.setDescription("Contact type description");
         contactTypeEntity.setActive(true);
 
-        contactEntity.setId(1);
+        contactEntity.setId(BigInteger.ONE);
         contactEntity.setActive(true);
         contactEntity.setPerson(new PersonEntity());
         contactEntity.setContent("Content");

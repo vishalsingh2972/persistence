@@ -15,6 +15,8 @@ package com.prx.persistence.general.domains;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigInteger;
+
 /**
  * TestContactTypeEntity.
  *
@@ -26,7 +28,7 @@ class ContactTypeEntityTest {
     @Test
     void gettersAndSetters(){
         final var contactTypeEntity = new ContactTypeEntity();
-        contactTypeEntity.setId(1);
+        contactTypeEntity.setId(BigInteger.ONE);
         contactTypeEntity.setName("Contact type 0001");
         contactTypeEntity.setDescription("Contact type description");
         contactTypeEntity.setActive(true);
